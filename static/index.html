@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meeting Summarizer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> AI Meeting Summarizer</h1>
+            <p class="subtitle">Transform your meetings into actionable insights</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card recording-card">
+                <h2><i class="fas fa-microphone"></i> Record Meeting</h2>
+                <div class="input-group">
+                    <input type="text" id="meetingLink" placeholder="Paste meeting link or name...">
+                </div>
+                <div class="button-group">
+                    <button id="startRecording" class="btn-primary">
+                        <i class="fas fa-play"></i> Start Recording
+                    </button>
+                    <button id="stopRecording" class="btn-secondary" disabled>
+                        <i class="fas fa-stop"></i> Stop Recording
+                    </button>
+                </div>
+                <div id="recordingStatus">Ready to record</div>
+            </div>
+
+            <div class="card results-card">
+                <div class="results-tabs">
+                    <button class="tab-btn active" data-tab="transcript">Transcript</button>
+                    <button class="tab-btn" data-tab="summary">Summary</button>
+                    <button class="tab-btn" data-tab="wordcloud">Word Cloud</button>
+                </div>
+                
+                <div class="tab-content active" id="transcript-tab">
+                    <div id="transcription" class="transcript-content"></div>
+                </div>
+                
+                <div class="tab-content" id="summary-tab">
+                    <div id="summary" class="summary-content"></div>
+                    <button id="downloadPdf" class="btn-download">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </button>
+                </div>
+                
+                <div class="tab-content" id="wordcloud-tab">
+                    <div id="wordcloud" class="wordcloud-placeholder">
+                        <img src="/static/images/wordcloud-sample.png" alt="Word Cloud">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2><i class="fas fa-history"></i> Meeting History</h2>
+            <div id="meetingHistory" class="history-list">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
